@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title><b>Car Price Prediction</b></title>
+
+ 
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Car Price Prediction</h2>
+                    <form action = "{{url_for('predict')}}" method="POST">
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Present Price</label>
+                                    <input class="input--style-4" type="text" name="Present_Price" required = "required">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">No of Years Old Car</label>
+                                    <input class="input--style-4" type="text" name="Year" required = "required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                         <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Kilometer Drive</label>
+                                    <input class="input--style-4" type="text" name="Kms_Driven" required = "required">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Owner</label>
+                                    <input class="input--style-4" type="text" name="Owner" required = "required"> 
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="input-group">
+                            <label class="label">Fuel Type</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="Fuel_Type_Petrol" required>
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option value = "Petrol">Petrol</option>
+                                    <option value = "Diesel">Diesel</option>
+                                    <option value = "Diesel">CNG</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+						
+						<div class="input-group">
+                            <label class="label">Transmission</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="Transmission_Manual" required>
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option value = "Manual">Manual</option>
+                                    <option value = "Automatic">Automatic</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+						
+						<div class="input-group">
+                            <label class="label">Seller Type</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="Seller_Type_Individual" required>
+                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                    <option value = "Dealer">Dealer</option>
+                                    <option value = "Individual">Individual</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+						
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                        </div>
+                    </form>
+					<br>
+                    <br>
+								{{ prediction_text }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
